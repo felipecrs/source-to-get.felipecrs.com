@@ -20,3 +20,4 @@ jobs:
           destination-github-username: 'felipecrs'
           destination-repository-name: 'get.felipecrs.com'
           target-branch: main
+          commit-message: 'chore: Update from ORIGIN_COMMIT'
