@@ -1,0 +1,22 @@
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: creates output
+        run: |
+          mkdir -p output
+          cp -f install.sh output/index.html
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@v1.5.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'output'
+          destination-github-username: 'felipecrs'
+          destination-repository-name: 'get.felipecrs.com'
+          target-branch: main
